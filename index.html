@@ -321,7 +321,7 @@
         <div style="background:#fff; padding:14px; border-radius:14px; border:1px solid #e6dccf;">
           <h3 style="font-size:15px; margin-bottom:6px;">1. Describe Your Idea</h3>
           <p style="font-size:13px; color:#6b7280;">
-            Tell MangoMind what you want to visualize &mdash; a process, concept, topic, journey, or comparison.
+            Tell MangoMind what you want to visualize — a process, concept, topic, journey, or comparison.
           </p>
         </div>
 
@@ -342,38 +342,12 @@
       </div>
     </section>
 
-    <section style="
-      margin: 20px 0 22px;
-      padding: 18px 16px;
-      background:#fffdf9;
-      border:1px solid #eadfce;
-      border-radius:16px;
-    ">
-      <h2 style="font-size:18px; margin-bottom:10px;">MangoMind&rsquo;s Infographic Prompt Recipe</h2>
-
-      <pre style="
-        background:#f8f3ec;
-        padding:14px;
-        border-radius:12px;
-        border:1px solid #e5d5c3;
-        font-family: ui-monospace, monospace;
-        font-size:12px;
-        white-space: pre-wrap;
-        color:#44403c;
-      ">
-Create an infographic about: [YOUR TOPIC].
-Style: [reference-inspired or chosen style].
-Include: [steps, icons, labels, arrows, sections].
-Avoid: [clutter, long paragraphs].
-Format: [aspect ratio, layout structure].
-
-Audience: [kids, beginners, executives].
-Tone: [friendly, technical, playful].
-
-Use clear grouping and a consistent color theme.
-Keep text minimal and easy to read.
-      </pre>
-    </section>
+    <h2 style="font-size:22px; margin:40px 0 16px; text-align:center;">Explore Visual Styles</h2>
+    <p style="font-size:14px; color:#6b7280; text-align:center; max-width:640px; margin:6px auto 24px;">
+      Browse visual patterns to discover the look and structure that fits your idea best. Each style can be transformed
+      into a prompt for any AI model. You can also customize the MangoMind Studio for your industry — from coaching and
+      education to business, travel, wellness, and more.
+    </p>
 
     <main class="grid">
       <!-- 1. Process Diagrams -->
@@ -394,8 +368,8 @@ Keep text minimal and easy to read.
           </div>
           <div class="thumb-row">
             <div class="thumb">
-              <img src="images/pizza process diagram.jpg" alt="Pizza process diagram">
-              <span class="thumb-label">Pizza</span>
+              <img src="images/detailed process.jpg" alt="Process diagram">
+              <span class="thumb-label">Process</span>
             </div>
             <div class="thumb">
               <img src="images/glass making.jpg" alt="Glass making process">
@@ -730,15 +704,47 @@ Keep text minimal and easy to read.
     </main>
 
     <section style="
+      margin: 40px 0 22px;
+      padding: 18px 16px;
+      background:#fffdf9;
+      border:1px solid #eadfce;
+      border-radius:16px;
+    ">
+      <h2 style="font-size:18px; margin-bottom:10px;">MangoMind’s Infographic Prompt Recipe</h2>
+      <pre style="
+        background:#f8f3ec;
+        padding:14px;
+        border-radius:12px;
+        border:1px solid #e5d5c3;
+        font-family: ui-monospace, monospace;
+        font-size:12px;
+        white-space: pre-wrap;
+        color:#44403c;
+      ">
+Create an infographic about: [YOUR TOPIC].
+Style: [reference-inspired or chosen style].
+Include: [steps, icons, labels, arrows, sections].
+Avoid: [clutter, long paragraphs].
+Format: [aspect ratio, layout structure].
+
+Audience: [kids, beginners, executives].
+Tone: [friendly, technical, playful].
+
+Use clear grouping and a consistent color theme.
+Keep text minimal and easy to read.
+      </pre>
+    </section>
+
+    <section style="
       margin:32px 0 10px;
       padding:20px 16px;
       background:#fff7ed;
       border-radius:18px;
       border:1px solid #f7e0c0;
     ">
-      <h2 style="font-size:18px; margin-bottom:8px;">What&rsquo;s Next for MangoMind</h2>
+      <h2 style="font-size:18px; margin-bottom:8px;">What’s Next for MangoMind</h2>
       <p style="font-size:13px; color:#6b7280; margin-bottom:12px;">
-        Today we&rsquo;re focusing on infographics. MangoMind is built to grow into a full visual studio:
+        Today we’re focusing on infographics. MangoMind is built to grow into a full visual studio:
       </p>
       <ul style="font-size:13px; color:#6b7280; padding-left:18px; line-height:1.6;">
         <li>Lettering and quote posters</li>
@@ -749,11 +755,10 @@ Keep text minimal and easy to read.
         <li>Style decoding from any reference image</li>
       </ul>
       <p style="font-size:13px; color:#6b7280; margin-top:10px;">
-        MangoMind stays model-agnostic &mdash; you generate visuals in Gemini, ChatGPT Images, Midjourney, SDXL,
-        or any tool you love. MangoMind just gives you the thinking and the prompt.
+        MangoMind stays model-agnostic — you generate visuals in Gemini, ChatGPT Images, Midjourney, SDXL,
+        or any tool you love. MangoMind gives you the thinking and the prompt.
       </p>
     </section>
-
   </div>
 
   <!-- CLICK-TO-ZOOM LIGHTBOX -->
@@ -775,9 +780,7 @@ Keep text minimal and easy to read.
   </div>
 
   <script>
-    /* ----------------------------
-       1) Lightbox click-to-zoom
-       ---------------------------- */
+    // 1) Lightbox click-to-zoom
     const thumbs = document.querySelectorAll('.thumb img');
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
@@ -794,9 +797,7 @@ Keep text minimal and easy to read.
       lightbox.style.display = 'none';
     });
 
-    /* --------------------------------------------
-       2) Auto-fix JPG vs JPEG mismatches on GitHub
-       -------------------------------------------- */
+    // 2) Auto-fix JPG vs JPEG mismatches on GitHub
     document.querySelectorAll('img').forEach(img => {
       img.addEventListener('error', () => {
         if (img.dataset.triedFix) return;
