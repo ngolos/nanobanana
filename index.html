@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>What You Can Create with AI</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <style>
     :root {
-      --bg: #0f172a;
-      --bg-soft: #020617;
-      --card: #111827;
-      --border: #1f2937;
-      --accent: #38bdf8;
-      --accent-soft: rgba(56, 189, 248, 0.1);
-      --text-main: #e5e7eb;
-      --text-muted: #9ca3af;
+      --bg: #f5f1eb;
+      --bg-alt: #f0e7dd;
+      --card: #ffffff;
+      --card-border: #e0d6c8;
+      --accent: #f97316;       /* warm orange, no blue */
+      --accent-soft: #fef3c7;
+      --text-main: #27272a;
+      --text-muted: #6b7280;
       --radius-xl: 18px;
       --radius-lg: 12px;
-      --shadow-soft: 0 18px 40px rgba(0,0,0,0.55);
-      --shadow-chip: 0 6px 18px rgba(0,0,0,0.5);
-      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.12);
+      --font-main: system-ui, -apple-system, BlinkMacSystemFont,
                    "Segoe UI", sans-serif;
+      --font-mono: ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
     }
 
     * {
@@ -29,11 +30,11 @@
     }
 
     body {
-      background: radial-gradient(circle at top, #1e293b 0, #020617 45%, #000 100%);
-      color: var(--text-main);
+      background: radial-gradient(circle at top, #fef3c7 0, var(--bg) 45%, #e5ded4 100%);
       font-family: var(--font-main);
+      color: var(--text-main);
       line-height: 1.5;
-      padding: 32px 16px 64px;
+      padding: 24px 16px 56px;
     }
 
     .page {
@@ -42,8 +43,8 @@
     }
 
     header {
-      margin-bottom: 32px;
       text-align: center;
+      margin-bottom: 32px;
     }
 
     .eyebrow {
@@ -52,107 +53,92 @@
       gap: 8px;
       padding: 4px 10px;
       border-radius: 999px;
-      border: 1px solid rgba(148,163,184,0.35);
-      background: rgba(15,23,42,0.8);
+      border: 1px solid rgba(148, 132, 106, 0.45);
+      background: rgba(255, 255, 255, 0.8);
       font-size: 11px;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       color: var(--text-muted);
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .eyebrow-dot {
-      width: 6px;
-      height: 6px;
+      width: 7px;
+      height: 7px;
       border-radius: 999px;
       background: var(--accent);
-      box-shadow: 0 0 16px rgba(56,189,248,0.9);
+      box-shadow: 0 0 18px rgba(248, 153, 50, 0.9);
     }
 
     h1 {
-      font-size: clamp(30px, 4vw, 40px);
-      margin-bottom: 10px;
+      font-size: clamp(28px, 4vw, 36px);
+      margin-bottom: 6px;
     }
 
     .hero-subtitle {
       max-width: 640px;
       margin: 0 auto;
-      font-size: 15px;
+      font-size: 14px;
       color: var(--text-muted);
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 18px;
-      margin-top: 32px;
+      margin-top: 28px;
     }
 
     .card {
       position: relative;
-      background: radial-gradient(circle at top left,
-                  rgba(56,189,248,0.16) 0,
-                  var(--card) 40%);
+      background: var(--card);
       border-radius: var(--radius-xl);
-      border: 1px solid var(--border);
-      padding: 18px 18px 16px;
+      border: 1px solid var(--card-border);
       box-shadow: var(--shadow-soft);
+      padding: 16px 16px 14px;
       overflow: hidden;
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top right,
-                  rgba(148,163,184,0.16) 0,
-                  transparent 45%);
-      opacity: 0.7;
-      pointer-events: none;
-      mix-blend-mode: screen;
     }
 
     .card-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 8px;
       margin-bottom: 10px;
-      position: relative;
-      z-index: 1;
     }
 
     .card-title {
-      font-size: 15px;
-      font-weight: 600;
       display: flex;
       align-items: center;
       gap: 8px;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .card-number {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #92400e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 600;
     }
 
     .card-tag {
       font-size: 11px;
       padding: 3px 8px;
       border-radius: 999px;
-      background: rgba(15,23,42,0.9);
-      border: 1px solid rgba(148,163,184,0.5);
+      background: #f9f5f0;
+      border: 1px solid #e7d9c6;
       color: var(--text-muted);
-    }
-
-    .card-icon {
-      width: 22px;
-      height: 22px;
-      border-radius: 10px;
-      background: radial-gradient(circle at 30% 0, #e5e7eb 0, #4b5563 45%, #020617 100%);
-      box-shadow: var(--shadow-chip);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 13px;
+      white-space: nowrap;
     }
 
     .card-body {
-      position: relative;
-      z-index: 1;
       font-size: 13px;
       color: var(--text-muted);
       margin-bottom: 10px;
@@ -162,110 +148,136 @@
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
-      margin: 10px 0 12px;
+      margin: 8px 0 10px;
     }
 
     .chip {
       font-size: 11px;
-      padding: 4px 8px;
+      padding: 3px 8px;
       border-radius: 999px;
-      background: rgba(15,23,42,0.95);
-      border: 1px solid rgba(55,65,81,0.9);
+      background: #f5efe6;
+      border: 1px solid #e0d6c8;
       white-space: nowrap;
     }
 
     .thumb-row {
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 6px;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .thumb {
-      flex: 1;
-      height: 60px;
+      position: relative;
       border-radius: var(--radius-lg);
-      background: linear-gradient(135deg, rgba(15,23,42,0.85),
-                                         rgba(30,64,175,0.85));
-      border: 1px solid rgba(148,163,184,0.4);
-      font-size: 10px;
+      overflow: hidden;
+      border: 1px solid #e0d6c8;
+      background: #f3eee7;
+      height: 80px;
       display: flex;
       align-items: flex-end;
       justify-content: flex-start;
-      padding: 6px;
-      color: #e5e7eb;
+    }
+
+    .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .thumb-label {
+      position: absolute;
+      left: 6px;
+      bottom: 6px;
+      padding: 2px 6px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.6);
+      color: #f9fafb;
+      font-size: 10px;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.06em;
     }
 
     .prompt-block {
       font-size: 11px;
-      background: rgba(15,23,42,0.9);
+      background: #f8f3ec;
       border-radius: 10px;
       padding: 8px 9px;
-      border: 1px solid rgba(55,65,81,0.9);
-      margin-bottom: 10px;
+      border: 1px solid #e5d5c3;
     }
 
     .prompt-label {
       font-size: 10px;
       text-transform: uppercase;
       letter-spacing: 0.13em;
-      color: var(--accent);
+      color: #b45309;
       margin-bottom: 4px;
     }
 
     .prompt-text {
-      font-family: "SF Mono", ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-family: var(--font-mono);
       font-size: 11px;
-      color: #e5e7eb;
+      color: #44403c;
     }
 
     .card-footer {
+      margin-top: 10px;
+      padding-top: 6px;
+      border-top: 1px dashed #e2d5c4;
       display: flex;
-      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
       align-items: center;
+      justify-content: space-between;
       font-size: 11px;
       color: var(--text-muted);
-      position: relative;
-      z-index: 1;
     }
 
     .pill {
       padding: 4px 8px;
       border-radius: 999px;
-      border: 1px solid rgba(55,65,81,0.9);
-      background: rgba(15,23,42,0.95);
+      border: 1px solid #e2d5c4;
+      background: #fdf7ee;
     }
 
     .btn-ghost {
       border-radius: 999px;
       padding: 5px 10px;
-      border: 1px solid var(--accent);
-      background: var(--accent-soft);
-      color: #e0f2fe;
+      border: 1px solid #f97316;
+      background: #fff7ed;
+      color: #9a3412;
       font-size: 11px;
       cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
       transition: background 0.15s ease, transform 0.1s ease,
                   box-shadow 0.15s ease;
     }
 
     .btn-ghost:hover {
-      background: rgba(56,189,248,0.18);
+      background: #ffedd5;
       transform: translateY(-1px);
-      box-shadow: 0 10px 25px rgba(56,189,248,0.35);
+      box-shadow: 0 10px 25px rgba(248, 153, 50, 0.25);
     }
 
     @media (max-width: 640px) {
       body {
-        padding: 24px 12px 40px;
+        padding: 18px 12px 40px;
       }
 
       .card {
         padding: 14px 14px 12px;
       }
 
+      .thumb-row {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
       .thumb {
-        height: 52px;
+        height: 70px;
       }
     }
   </style>
@@ -275,12 +287,12 @@
     <header>
       <div class="eyebrow">
         <span class="eyebrow-dot"></span>
-        VISUAL CAPABILITIES
+        Visual capabilities
       </div>
       <h1>What You Can Create with AI</h1>
       <p class="hero-subtitle">
-        Eight core visual patterns: from process diagrams and exploded views
-        to maps, storyboards, and data-rich business infographics.
+        Eight visual patterns you can generate on demand – from process diagrams
+        and exploded views to maps, storyboards, and data-rich infographics.
       </p>
     </header>
 
@@ -289,36 +301,44 @@
       <section class="card" id="process-diagrams">
         <div class="card-header">
           <div class="card-title">
-            <div class="card-icon">①</div>
+            <div class="card-number">1</div>
             Process Diagrams
           </div>
           <span class="card-tag">Explain how things are made</span>
         </div>
         <div class="card-body">
-          Turn any process into a clear, step-by-step visual:
-          food, factories, products, or systems.
+          Turn any process into a clear, step-by-step visual – food, factories, products, or systems.
           <div class="chip-row">
             <span class="chip">Food journeys</span>
             <span class="chip">Manufacturing</span>
-            <span class="chip">Step labels</span>
+            <span class="chip">How-it-works</span>
           </div>
           <div class="thumb-row">
-            <div class="thumb">Pizza process</div>
-            <div class="thumb">Coffee journey</div>
-            <div class="thumb">Glass factory</div>
+            <!-- Replace file names with your own images -->
+            <div class="thumb">
+              <img src="images/process-1.jpg" alt="Pizza process diagram">
+              <span class="thumb-label">Pizza</span>
+            </div>
+            <div class="thumb">
+              <img src="images/process-2.jpg" alt="Coffee journey diagram">
+              <span class="thumb-label">Coffee</span>
+            </div>
+            <div class="thumb">
+              <img src="images/process-3.jpg" alt="Glass factory process">
+              <span class="thumb-label">Glass</span>
+            </div>
           </div>
           <div class="prompt-block">
             <div class="prompt-label">Sample prompt</div>
             <div class="prompt-text">
-              Create a step-by-step diagram showing how
-              cheddar cheese is made, with labeled stages,
+              Create a step-by-step diagram showing how cheddar cheese is made, with labeled stages,
               arrows, and a warm educational style.
             </div>
           </div>
-        </div>
-        <div class="card-footer">
-          <span class="pill">Great for: education & onboarding</span>
-          <button class="btn-ghost">Try this pattern</button>
+          <div class="card-footer">
+            <span class="pill">Great for: education & onboarding</span>
+            <span class="btn-ghost">Use this pattern</span>
+          </div>
         </div>
       </section>
 
@@ -326,36 +346,43 @@
       <section class="card" id="exploded-views">
         <div class="card-header">
           <div class="card-title">
-            <div class="card-icon">②</div>
+            <div class="card-number">2</div>
             Exploded &amp; Cutaway Views
           </div>
           <span class="card-tag">See inside anything</span>
         </div>
         <div class="card-body">
-          Reveal hidden structure with floating layers
-          and x-ray style cutaways.
+          Reveal hidden structure with floating layers and x-ray–style cutaways.
           <div class="chip-row">
-            <span class="chip">Exploded burgers</span>
             <span class="chip">Tech internals</span>
-            <span class="chip">Layer labels</span>
+            <span class="chip">Food layers</span>
+            <span class="chip">Exploded products</span>
           </div>
           <div class="thumb-row">
-            <div class="thumb">Burger exploded</div>
-            <div class="thumb">Drone cutaway</div>
-            <div class="thumb">Phone layers</div>
+            <div class="thumb">
+              <img src="images/exploded-1.jpg" alt="Exploded burger diagram">
+              <span class="thumb-label">Burger</span>
+            </div>
+            <div class="thumb">
+              <img src="images/exploded-2.jpg" alt="Drone cutaway view">
+              <span class="thumb-label">Drone</span>
+            </div>
+            <div class="thumb">
+              <img src="images/exploded-3.jpg" alt="Phone exploded view">
+              <span class="thumb-label">Phone</span>
+            </div>
           </div>
           <div class="prompt-block">
             <div class="prompt-label">Sample prompt</div>
             <div class="prompt-text">
-              Generate an exploded view of a flagship smartphone,
-              with every component floating in air and labeled
-              like a technical poster.
+              Generate an exploded view of a flagship smartphone, with each component floating in the air
+              and labeled like a technical poster.
             </div>
           </div>
-        </div>
-        <div class="card-footer">
-          <span class="pill">Great for: product & tech</span>
-          <button class="btn-ghost">Try this pattern</button>
+          <div class="card-footer">
+            <span class="pill">Great for: product & tech</span>
+            <span class="btn-ghost">Use this pattern</span>
+          </div>
         </div>
       </section>
 
@@ -363,73 +390,87 @@
       <section class="card" id="maps-guides">
         <div class="card-header">
           <div class="card-title">
-            <div class="card-icon">③</div>
+            <div class="card-number">3</div>
             Maps &amp; Illustrated Guides
           </div>
           <span class="card-tag">Turn itineraries into maps</span>
         </div>
         <div class="card-body">
-          Transform trips, journeys, or flows into charming
-          illustrated maps with icons and paths.
+          Transform trips or journeys into illustrated maps with icons, routes, and day markers.
           <div class="chip-row">
             <span class="chip">Travel plans</span>
             <span class="chip">Story routes</span>
-            <span class="chip">Day-by-day</span>
+            <span class="chip">Customer journeys</span>
           </div>
           <div class="thumb-row">
-            <div class="thumb">City itinerary</div>
-            <div class="thumb">Food trail</div>
-            <div class="thumb">Journey map</div>
+            <div class="thumb">
+              <img src="images/maps-1.jpg" alt="City itinerary map">
+              <span class="thumb-label">City map</span>
+            </div>
+            <div class="thumb">
+              <img src="images/maps-2.jpg" alt="Food trail map">
+              <span class="thumb-label">Food trail</span>
+            </div>
+            <div class="thumb">
+              <img src="images/maps-3.jpg" alt="Journey map">
+              <span class="thumb-label">Journey</span>
+            </div>
           </div>
           <div class="prompt-block">
             <div class="prompt-label">Sample prompt</div>
             <div class="prompt-text">
-              Using this 5-day Paris itinerary, create a hand-drawn
-              travel map with landmarks, food spots, and “Day 1–5”
-              markers, all text in English.
+              Using this 5-day Paris itinerary, create a hand-drawn travel map with landmarks, food spots,
+              and “Day 1–5” labels, all text in English.
             </div>
           </div>
-        </div>
-        <div class="card-footer">
-          <span class="pill">Great for: travel & journeys</span>
-          <button class="btn-ghost">Try this pattern</button>
+          <div class="card-footer">
+            <span class="pill">Great for: travel & flows</span>
+            <span class="btn-ghost">Use this pattern</span>
+          </div>
         </div>
       </section>
 
-      <!-- 4. Isometric & Architectural Blueprints -->
+      <!-- 4. Isometric & Blueprints -->
       <section class="card" id="blueprints">
         <div class="card-header">
           <div class="card-title">
-            <div class="card-icon">④</div>
+            <div class="card-number">4</div>
             Isometric &amp; Blueprints
           </div>
           <span class="card-tag">Construction & history</span>
         </div>
         <div class="card-body">
-          Visualize buildings, castles, and landmarks with
-          isometric views and blueprint-style overlays.
+          Visualize buildings and landmarks with isometric views and blueprint overlays.
           <div class="chip-row">
             <span class="chip">Castles</span>
             <span class="chip">Great Wall</span>
-            <span class="chip">Landmark overlays</span>
+            <span class="chip">Landmarks</span>
           </div>
           <div class="thumb-row">
-            <div class="thumb">Castle cutaway</div>
-            <div class="thumb">Pyramid ramps</div>
-            <div class="thumb">Eiffel blueprint</div>
+            <div class="thumb">
+              <img src="images/blueprint-1.jpg" alt="Castle cross section">
+              <span class="thumb-label">Castle</span>
+            </div>
+            <div class="thumb">
+              <img src="images/blueprint-2.jpg" alt="Pyramid construction">
+              <span class="thumb-label">Pyramid</span>
+            </div>
+            <div class="thumb">
+              <img src="images/blueprint-3.jpg" alt="Eiffel Tower annotated">
+              <span class="thumb-label">Eiffel</span>
+            </div>
           </div>
           <div class="prompt-block">
             <div class="prompt-label">Sample prompt</div>
             <div class="prompt-text">
-              Create an infographic of the Eiffel Tower that
-              mixes a real photo with blueprint-style technical
-              annotations and measurements.
+              Create an infographic of the Eiffel Tower that mixes a real photo with blueprint-style white
+              technical annotations and measurements.
             </div>
           </div>
-        </div>
-        <div class="card-footer">
-          <span class="pill">Great for: history & architecture</span>
-          <button class="btn-ghost">Try this pattern</button>
+          <div class="card-footer">
+            <span class="pill">Great for: history & architecture</span>
+            <span class="btn-ghost">Use this pattern</span>
+          </div>
         </div>
       </section>
 
@@ -437,147 +478,175 @@
       <section class="card" id="annotation">
         <div class="card-header">
           <div class="card-title">
-            <div class="card-icon">⑤</div>
+            <div class="card-number">5</div>
             Annotation &amp; Analysis
           </div>
           <span class="card-tag">Upload → get labels</span>
         </div>
         <div class="card-body">
-          Upload photos or designs and let AI annotate them:
-          calories, fashion, poses, or technical notes.
+          Upload a photo and let AI annotate it – calories, outfits, poses, or technical parts.
           <div class="chip-row">
             <span class="chip">Food calories</span>
-            <span class="chip">Mood boards</span>
+            <span class="chip">Fashion mood boards</span>
             <span class="chip">Character poses</span>
           </div>
           <div class="thumb-row">
-            <div class="thumb">Calorie plate</div>
-            <div class="thumb">Outfit board</div>
-            <div class="thumb">Pose sheet</div>
+            <div class="thumb">
+              <img src="images/annot-1.jpg" alt="Annotated meal with calories">
+              <span class="thumb-label">Meal</span>
+            </div>
+            <div class="thumb">
+              <img src="images/annot-2.jpg" alt="Fashion mood board">
+              <span class="thumb-label">Outfit</span>
+            </div>
+            <div class="thumb">
+              <img src="images/annot-3.jpg" alt="Character pose sheet">
+              <span class="thumb-label">Poses</span>
+            </div>
           </div>
           <div class="prompt-block">
             <div class="prompt-label">Sample prompt</div>
             <div class="prompt-text">
-              From this meal photo, annotate each food item with
-              its name and approximate calories, using clean,
-              minimal callout boxes.
+              From this meal photo, annotate each food item with its name and approximate calories using
+              clean, minimal callout boxes.
             </div>
           </div>
-        </div>
-        <div class="card-footer">
-          <span class="pill">Great for: coaching & analysis</span>
-          <button class="btn-ghost">Try this pattern</button>
+          <div class="card-footer">
+            <span class="pill">Great for: coaching & analysis</span>
+            <span class="btn-ghost">Use this pattern</span>
+          </div>
         </div>
       </section>
 
-      <!-- 6. Data & Business Visualizations -->
+      <!-- 6. Data & Business Visuals -->
       <section class="card" id="data-business">
         <div class="card-header">
           <div class="card-title">
-            <div class="card-icon">⑥</div>
+            <div class="card-number">6</div>
             Data &amp; Business Visuals
           </div>
           <span class="card-tag">From numbers to visuals</span>
         </div>
         <div class="card-body">
-          Turn reports and stats into sketch-style charts
-          or polished financial infographics.
+          Turn reports and statistics into sketch-style charts or polished business infographics.
           <div class="chip-row">
             <span class="chip">Country metrics</span>
-            <span class="chip">Earnings decks</span>
+            <span class="chip">Earnings</span>
             <span class="chip">Dashboards</span>
           </div>
           <div class="thumb-row">
-            <div class="thumb">Sketch chart</div>
-            <div class="thumb">KPI bar</div>
-            <div class="thumb">Earnings one-pager</div>
+            <div class="thumb">
+              <img src="images/data-1.jpg" alt="Sketch style chart">
+              <span class="thumb-label">Sketch chart</span>
+            </div>
+            <div class="thumb">
+              <img src="images/data-2.jpg" alt="KPI dashboard">
+              <span class="thumb-label">KPIs</span>
+            </div>
+            <div class="thumb">
+              <img src="images/data-3.jpg" alt="Earnings one pager">
+              <span class="thumb-label">Earnings</span>
+            </div>
           </div>
           <div class="prompt-block">
             <div class="prompt-label">Sample prompt</div>
             <div class="prompt-text">
-              Using this quarterly earnings PDF, create a single
-              infographic with hero metrics, segment revenue, and
-              key risks in a clean dashboard layout.
+              Using this quarterly earnings PDF, create one infographic with hero metrics, segment revenue,
+              and key risks in a clean dashboard layout.
             </div>
           </div>
-        </div>
-        <div class="card-footer">
-          <span class="pill">Great for: reports & decks</span>
-          <button class="btn-ghost">Try this pattern</button>
+          <div class="card-footer">
+            <span class="pill">Great for: reports & decks</span>
+            <span class="btn-ghost">Use this pattern</span>
+          </div>
         </div>
       </section>
 
-      <!-- 7. Storytelling & Creative Scenes -->
+      <!-- 7. Storytelling & Scenes -->
       <section class="card" id="storytelling">
         <div class="card-header">
           <div class="card-title">
-            <div class="card-icon">⑦</div>
+            <div class="card-number">7</div>
             Storytelling &amp; Scenes
           </div>
           <span class="card-tag">Stories in frames</span>
         </div>
         <div class="card-body">
-          Build storyboards, kids’ learning pages, and
-          character-driven scenes.
+          Build storyboards, kids’ learning pages, and character-driven sequences.
           <div class="chip-row">
             <span class="chip">Film noir</span>
             <span class="chip">Kids’ claymation</span>
             <span class="chip">Scene sequences</span>
           </div>
           <div class="thumb-row">
-            <div class="thumb">Noir panels</div>
-            <div class="thumb">Day-in-life</div>
-            <div class="thumb">Character arc</div>
+            <div class="thumb">
+              <img src="images/story-1.jpg" alt="Film noir storyboard">
+              <span class="thumb-label">Noir</span>
+            </div>
+            <div class="thumb">
+              <img src="images/story-2.jpg" alt="Day in life educational scene">
+              <span class="thumb-label">Kids</span>
+            </div>
+            <div class="thumb">
+              <img src="images/story-3.jpg" alt="Character arc storyboard">
+              <span class="thumb-label">Arc</span>
+            </div>
           </div>
           <div class="prompt-block">
             <div class="prompt-label">Sample prompt</div>
             <div class="prompt-text">
-              Create a 12-panel black-and-white film noir
-              storyboard where two detectives follow clues
-              to a missing treasure, no text on the images.
+              Create a 12-panel black-and-white film noir storyboard where two detectives follow clues to a
+              missing treasure, no text on the images.
             </div>
           </div>
-        </div>
-        <div class="card-footer">
-          <span class="pill">Great for: stories & teaching</span>
-          <button class="btn-ghost">Try this pattern</button>
+          <div class="card-footer">
+            <span class="pill">Great for: stories & teaching</span>
+            <span class="btn-ghost">Use this pattern</span>
+          </div>
         </div>
       </section>
 
-      <!-- 8. Document & Knowledge Compression -->
+      <!-- 8. Knowledge Compression -->
       <section class="card" id="compression">
         <div class="card-header">
           <div class="card-title">
-            <div class="card-icon">⑧</div>
+            <div class="card-number">8</div>
             Knowledge Compression
           </div>
           <span class="card-tag">Big info → one visual</span>
         </div>
         <div class="card-body">
-          Feed in long PDFs, articles, or notes and get one
-          clear, compressed visual out.
+          Feed long PDFs, playbooks, or notes into AI and get one clear visual overview.
           <div class="chip-row">
             <span class="chip">PDF → diagram</span>
             <span class="chip">Playbooks</span>
             <span class="chip">Cheat sheets</span>
           </div>
           <div class="thumb-row">
-            <div class="thumb">Playbook map</div>
-            <div class="thumb">System overview</div>
-            <div class="thumb">Cheat sheet</div>
+            <div class="thumb">
+              <img src="images/comp-1.jpg" alt="Playbook map diagram">
+              <span class="thumb-label">Playbook</span>
+            </div>
+            <div class="thumb">
+              <img src="images/comp-2.jpg" alt="System overview visual">
+              <span class="thumb-label">System</span>
+            </div>
+            <div class="thumb">
+              <img src="images/comp-3.jpg" alt="Cheat sheet visual">
+              <span class="thumb-label">Cheat sheet</span>
+            </div>
           </div>
           <div class="prompt-block">
             <div class="prompt-label">Sample prompt</div>
             <div class="prompt-text">
-              Take this 20-page process document and compress it
-              into one diagram that shows the 5 main phases and
-              key decision points.
+              Take this 20-page process document and compress it into one diagram that shows the
+              5 main phases and key decision points.
             </div>
           </div>
-        </div>
-        <div class="card-footer">
-          <span class="pill">Great for: clarity & training</span>
-          <button class="btn-ghost">Try this pattern</button>
+          <div class="card-footer">
+            <span class="pill">Great for: clarity & training</span>
+            <span class="btn-ghost">Use this pattern</span>
+          </div>
         </div>
       </section>
     </main>
