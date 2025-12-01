@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>What You Can Create with AI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #0f172a;
+      --bg-soft: #020617;
+      --card: #111827;
+      --border: #1f2937;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.1);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --radius-xl: 18px;
+      --radius-lg: 12px;
+      --shadow-soft: 0 18px 40px rgba(0,0,0,0.55);
+      --shadow-chip: 0 6px 18px rgba(0,0,0,0.5);
+      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+                   "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #1e293b 0, #020617 45%, #000 100%);
+      color: var(--text-main);
+      font-family: var(--font-main);
+      line-height: 1.5;
+      padding: 32px 16px 64px;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    header {
+      margin-bottom: 32px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.35);
+      background: rgba(15,23,42,0.8);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .eyebrow-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 16px rgba(56,189,248,0.9);
+    }
+
+    h1 {
+      font-size: clamp(30px, 4vw, 40px);
+      margin-bottom: 10px;
+    }
+
+    .hero-subtitle {
+      max-width: 640px;
+      margin: 0 auto;
+      font-size: 15px;
+      color: var(--text-muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      margin-top: 32px;
+    }
+
+    .card {
+      position: relative;
+      background: radial-gradient(circle at top left,
+                  rgba(56,189,248,0.16) 0,
+                  var(--card) 40%);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border);
+      padding: 18px 18px 16px;
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right,
+                  rgba(148,163,184,0.16) 0,
+                  transparent 45%);
+      opacity: 0.7;
+      pointer-events: none;
+      mix-blend-mode: screen;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .card-title {
+      font-size: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card-tag {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(148,163,184,0.5);
+      color: var(--text-muted);
+    }
+
+    .card-icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 10px;
+      background: radial-gradient(circle at 30% 0, #e5e7eb 0, #4b5563 45%, #020617 100%);
+      box-shadow: var(--shadow-chip);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+    }
+
+    .card-body {
+      position: relative;
+      z-index: 1;
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 10px 0 12px;
+    }
+
+    .chip {
+      font-size: 11px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.95);
+      border: 1px solid rgba(55,65,81,0.9);
+      white-space: nowrap;
+    }
+
+    .thumb-row {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+
+    .thumb {
+      flex: 1;
+      height: 60px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, rgba(15,23,42,0.85),
+                                         rgba(30,64,175,0.85));
+      border: 1px solid rgba(148,163,184,0.4);
+      font-size: 10px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+      padding: 6px;
+      color: #e5e7eb;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .prompt-block {
+      font-size: 11px;
+      background: rgba(15,23,42,0.9);
+      border-radius: 10px;
+      padding: 8px 9px;
+      border: 1px solid rgba(55,65,81,0.9);
+      margin-bottom: 10px;
+    }
+
+    .prompt-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .prompt-text {
+      font-family: "SF Mono", ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size: 11px;
+      color: #e5e7eb;
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: var(--text-muted);
+      position: relative;
+      z-index: 1;
+    }
+
+    .pill {
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(55,65,81,0.9);
+      background: rgba(15,23,42,0.95);
+    }
+
+    .btn-ghost {
+      border-radius: 999px;
+      padding: 5px 10px;
+      border: 1px solid var(--accent);
+      background: var(--accent-soft);
+      color: #e0f2fe;
+      font-size: 11px;
+      cursor: pointer;
+      transition: background 0.15s ease, transform 0.1s ease,
+                  box-shadow 0.15s ease;
+    }
+
+    .btn-ghost:hover {
+      background: rgba(56,189,248,0.18);
+      transform: translateY(-1px);
+      box-shadow: 0 10px 25px rgba(56,189,248,0.35);
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 24px 12px 40px;
+      }
+
+      .card {
+        padding: 14px 14px 12px;
+      }
+
+      .thumb {
+        height: 52px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        VISUAL CAPABILITIES
+      </div>
+      <h1>What You Can Create with AI</h1>
+      <p class="hero-subtitle">
+        Eight core visual patterns: from process diagrams and exploded views
+        to maps, storyboards, and data-rich business infographics.
+      </p>
+    </header>
+
+    <main class="grid">
+      <!-- 1. Process Diagrams -->
+      <section class="card" id="process-diagrams">
+        <div class="card-header">
+          <div class="card-title">
+            <div class="card-icon">①</div>
+            Process Diagrams
+          </div>
+          <span class="card-tag">Explain how things are made</span>
+        </div>
+        <div class="card-body">
+          Turn any process into a clear, step-by-step visual:
+          food, factories, products, or systems.
+          <div class="chip-row">
+            <span class="chip">Food journeys</span>
+            <span class="chip">Manufacturing</span>
+            <span class="chip">Step labels</span>
+          </div>
+          <div class="thumb-row">
+            <div class="thumb">Pizza process</div>
+            <div class="thumb">Coffee journey</div>
+            <div class="thumb">Glass factory</div>
+          </div>
+          <div class="prompt-block">
+            <div class="prompt-label">Sample prompt</div>
+            <div class="prompt-text">
+              Create a step-by-step diagram showing how
+              cheddar cheese is made, with labeled stages,
+              arrows, and a warm educational style.
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <span class="pill">Great for: education & onboarding</span>
+          <button class="btn-ghost">Try this pattern</button>
+        </div>
+      </section>
+
+      <!-- 2. Exploded & Cutaway Views -->
+      <section class="card" id="exploded-views">
+        <div class="card-header">
+          <div class="card-title">
+            <div class="card-icon">②</div>
+            Exploded &amp; Cutaway Views
+          </div>
+          <span class="card-tag">See inside anything</span>
+        </div>
+        <div class="card-body">
+          Reveal hidden structure with floating layers
+          and x-ray style cutaways.
+          <div class="chip-row">
+            <span class="chip">Exploded burgers</span>
+            <span class="chip">Tech internals</span>
+            <span class="chip">Layer labels</span>
+          </div>
+          <div class="thumb-row">
+            <div class="thumb">Burger exploded</div>
+            <div class="thumb">Drone cutaway</div>
+            <div class="thumb">Phone layers</div>
+          </div>
+          <div class="prompt-block">
+            <div class="prompt-label">Sample prompt</div>
+            <div class="prompt-text">
+              Generate an exploded view of a flagship smartphone,
+              with every component floating in air and labeled
+              like a technical poster.
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <span class="pill">Great for: product & tech</span>
+          <button class="btn-ghost">Try this pattern</button>
+        </div>
+      </section>
+
+      <!-- 3. Maps & Illustrated Guides -->
+      <section class="card" id="maps-guides">
+        <div class="card-header">
+          <div class="card-title">
+            <div class="card-icon">③</div>
+            Maps &amp; Illustrated Guides
+          </div>
+          <span class="card-tag">Turn itineraries into maps</span>
+        </div>
+        <div class="card-body">
+          Transform trips, journeys, or flows into charming
+          illustrated maps with icons and paths.
+          <div class="chip-row">
+            <span class="chip">Travel plans</span>
+            <span class="chip">Story routes</span>
+            <span class="chip">Day-by-day</span>
+          </div>
+          <div class="thumb-row">
+            <div class="thumb">City itinerary</div>
+            <div class="thumb">Food trail</div>
+            <div class="thumb">Journey map</div>
+          </div>
+          <div class="prompt-block">
+            <div class="prompt-label">Sample prompt</div>
+            <div class="prompt-text">
+              Using this 5-day Paris itinerary, create a hand-drawn
+              travel map with landmarks, food spots, and “Day 1–5”
+              markers, all text in English.
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <span class="pill">Great for: travel & journeys</span>
+          <button class="btn-ghost">Try this pattern</button>
+        </div>
+      </section>
+
+      <!-- 4. Isometric & Architectural Blueprints -->
+      <section class="card" id="blueprints">
+        <div class="card-header">
+          <div class="card-title">
+            <div class="card-icon">④</div>
+            Isometric &amp; Blueprints
+          </div>
+          <span class="card-tag">Construction & history</span>
+        </div>
+        <div class="card-body">
+          Visualize buildings, castles, and landmarks with
+          isometric views and blueprint-style overlays.
+          <div class="chip-row">
+            <span class="chip">Castles</span>
+            <span class="chip">Great Wall</span>
+            <span class="chip">Landmark overlays</span>
+          </div>
+          <div class="thumb-row">
+            <div class="thumb">Castle cutaway</div>
+            <div class="thumb">Pyramid ramps</div>
+            <div class="thumb">Eiffel blueprint</div>
+          </div>
+          <div class="prompt-block">
+            <div class="prompt-label">Sample prompt</div>
+            <div class="prompt-text">
+              Create an infographic of the Eiffel Tower that
+              mixes a real photo with blueprint-style technical
+              annotations and measurements.
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <span class="pill">Great for: history & architecture</span>
+          <button class="btn-ghost">Try this pattern</button>
+        </div>
+      </section>
+
+      <!-- 5. Annotation & Analysis -->
+      <section class="card" id="annotation">
+        <div class="card-header">
+          <div class="card-title">
+            <div class="card-icon">⑤</div>
+            Annotation &amp; Analysis
+          </div>
+          <span class="card-tag">Upload → get labels</span>
+        </div>
+        <div class="card-body">
+          Upload photos or designs and let AI annotate them:
+          calories, fashion, poses, or technical notes.
+          <div class="chip-row">
+            <span class="chip">Food calories</span>
+            <span class="chip">Mood boards</span>
+            <span class="chip">Character poses</span>
+          </div>
+          <div class="thumb-row">
+            <div class="thumb">Calorie plate</div>
+            <div class="thumb">Outfit board</div>
+            <div class="thumb">Pose sheet</div>
+          </div>
+          <div class="prompt-block">
+            <div class="prompt-label">Sample prompt</div>
+            <div class="prompt-text">
+              From this meal photo, annotate each food item with
+              its name and approximate calories, using clean,
+              minimal callout boxes.
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <span class="pill">Great for: coaching & analysis</span>
+          <button class="btn-ghost">Try this pattern</button>
+        </div>
+      </section>
+
+      <!-- 6. Data & Business Visualizations -->
+      <section class="card" id="data-business">
+        <div class="card-header">
+          <div class="card-title">
+            <div class="card-icon">⑥</div>
+            Data &amp; Business Visuals
+          </div>
+          <span class="card-tag">From numbers to visuals</span>
+        </div>
+        <div class="card-body">
+          Turn reports and stats into sketch-style charts
+          or polished financial infographics.
+          <div class="chip-row">
+            <span class="chip">Country metrics</span>
+            <span class="chip">Earnings decks</span>
+            <span class="chip">Dashboards</span>
+          </div>
+          <div class="thumb-row">
+            <div class="thumb">Sketch chart</div>
+            <div class="thumb">KPI bar</div>
+            <div class="thumb">Earnings one-pager</div>
+          </div>
+          <div class="prompt-block">
+            <div class="prompt-label">Sample prompt</div>
+            <div class="prompt-text">
+              Using this quarterly earnings PDF, create a single
+              infographic with hero metrics, segment revenue, and
+              key risks in a clean dashboard layout.
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <span class="pill">Great for: reports & decks</span>
+          <button class="btn-ghost">Try this pattern</button>
+        </div>
+      </section>
+
+      <!-- 7. Storytelling & Creative Scenes -->
+      <section class="card" id="storytelling">
+        <div class="card-header">
+          <div class="card-title">
+            <div class="card-icon">⑦</div>
+            Storytelling &amp; Scenes
+          </div>
+          <span class="card-tag">Stories in frames</span>
+        </div>
+        <div class="card-body">
+          Build storyboards, kids’ learning pages, and
+          character-driven scenes.
+          <div class="chip-row">
+            <span class="chip">Film noir</span>
+            <span class="chip">Kids’ claymation</span>
+            <span class="chip">Scene sequences</span>
+          </div>
+          <div class="thumb-row">
+            <div class="thumb">Noir panels</div>
+            <div class="thumb">Day-in-life</div>
+            <div class="thumb">Character arc</div>
+          </div>
+          <div class="prompt-block">
+            <div class="prompt-label">Sample prompt</div>
+            <div class="prompt-text">
+              Create a 12-panel black-and-white film noir
+              storyboard where two detectives follow clues
+              to a missing treasure, no text on the images.
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <span class="pill">Great for: stories & teaching</span>
+          <button class="btn-ghost">Try this pattern</button>
+        </div>
+      </section>
+
+      <!-- 8. Document & Knowledge Compression -->
+      <section class="card" id="compression">
+        <div class="card-header">
+          <div class="card-title">
+            <div class="card-icon">⑧</div>
+            Knowledge Compression
+          </div>
+          <span class="card-tag">Big info → one visual</span>
+        </div>
+        <div class="card-body">
+          Feed in long PDFs, articles, or notes and get one
+          clear, compressed visual out.
+          <div class="chip-row">
+            <span class="chip">PDF → diagram</span>
+            <span class="chip">Playbooks</span>
+            <span class="chip">Cheat sheets</span>
+          </div>
+          <div class="thumb-row">
+            <div class="thumb">Playbook map</div>
+            <div class="thumb">System overview</div>
+            <div class="thumb">Cheat sheet</div>
+          </div>
+          <div class="prompt-block">
+            <div class="prompt-label">Sample prompt</div>
+            <div class="prompt-text">
+              Take this 20-page process document and compress it
+              into one diagram that shows the 5 main phases and
+              key decision points.
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <span class="pill">Great for: clarity & training</span>
+          <button class="btn-ghost">Try this pattern</button>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
