@@ -2,13 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>What You Can Create with AI</title>
+  <title>Nano Banana – Visual Patterns</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
     :root {
       --bg: #f5f1eb;
-      --bg-alt: #f0e7dd;
       --card: #ffffff;
       --card-border: #e0d6c8;
       --accent: #f97316;       /* warm orange, no blue */
@@ -20,7 +19,8 @@
       --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.12);
       --font-main: system-ui, -apple-system, BlinkMacSystemFont,
                    "Segoe UI", sans-serif;
-      --font-mono: ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      --font-mono: ui-monospace, Menlo, Monaco, Consolas,
+                   "Liberation Mono", monospace;
     }
 
     * {
@@ -90,13 +90,11 @@
     }
 
     .card {
-      position: relative;
       background: var(--card);
       border-radius: var(--radius-xl);
       border: 1px solid var(--card-border);
       box-shadow: var(--shadow-soft);
       padding: 16px 16px 14px;
-      overflow: hidden;
     }
 
     .card-header {
@@ -244,23 +242,15 @@
     .btn-ghost {
       border-radius: 999px;
       padding: 5px 10px;
-      border: 1px solid #f97316;
+      border: 1px solid var(--accent);
       background: #fff7ed;
       color: #9a3412;
       font-size: 11px;
-      cursor: pointer;
+      cursor: default;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
       gap: 4px;
-      transition: background 0.15s ease, transform 0.1s ease,
-                  box-shadow 0.15s ease;
-    }
-
-    .btn-ghost:hover {
-      background: #ffedd5;
-      transform: translateY(-1px);
-      box-shadow: 0 10px 25px rgba(248, 153, 50, 0.25);
     }
 
     @media (max-width: 640px) {
@@ -270,10 +260,6 @@
 
       .card {
         padding: 14px 14px 12px;
-      }
-
-      .thumb-row {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
 
       .thumb {
@@ -289,10 +275,10 @@
         <span class="eyebrow-dot"></span>
         Visual capabilities
       </div>
-      <h1>What You Can Create with AI</h1>
+      <h1>What You Can Create with Nano Banana</h1>
       <p class="hero-subtitle">
         Eight visual patterns you can generate on demand – from process diagrams
-        and exploded views to maps, storyboards, and data-rich infographics.
+        and exploded views to maps, storyboards, annotations, and business infographics.
       </p>
     </header>
 
@@ -314,18 +300,17 @@
             <span class="chip">How-it-works</span>
           </div>
           <div class="thumb-row">
-            <!-- Replace file names with your own images -->
             <div class="thumb">
-              <img src="images/process-1.jpg" alt="Pizza process diagram">
+              <img src="images/detailed process.jpg" alt="Pizza process diagram">
               <span class="thumb-label">Pizza</span>
             </div>
             <div class="thumb">
-              <img src="images/process-2.jpg" alt="Coffee journey diagram">
-              <span class="thumb-label">Coffee</span>
+              <img src="images/glass making.jpg" alt="Glass making process">
+              <span class="thumb-label">Glass</span>
             </div>
             <div class="thumb">
-              <img src="images/process-3.jpg" alt="Glass factory process">
-              <span class="thumb-label">Glass</span>
+              <img src="images/silk making.jpg" alt="Silk making process">
+              <span class="thumb-label">Silk</span>
             </div>
           </div>
           <div class="prompt-block">
@@ -337,7 +322,7 @@
           </div>
           <div class="card-footer">
             <span class="pill">Great for: education & onboarding</span>
-            <span class="btn-ghost">Use this pattern</span>
+            <span class="btn-ghost">Process pattern</span>
           </div>
         </div>
       </section>
@@ -360,16 +345,16 @@
           </div>
           <div class="thumb-row">
             <div class="thumb">
-              <img src="images/exploded-1.jpg" alt="Exploded burger diagram">
+              <img src="images/exploded burger.jpg" alt="Exploded burger diagram">
               <span class="thumb-label">Burger</span>
             </div>
             <div class="thumb">
-              <img src="images/exploded-2.jpg" alt="Drone cutaway view">
-              <span class="thumb-label">Drone</span>
+              <img src="images/exploded2.jpg" alt="Exploded tech diagram">
+              <span class="thumb-label">Tech</span>
             </div>
             <div class="thumb">
-              <img src="images/exploded-3.jpg" alt="Phone exploded view">
-              <span class="thumb-label">Phone</span>
+              <img src="images/technical.jpg" alt="Technical cutaway">
+              <span class="thumb-label">Drone</span>
             </div>
           </div>
           <div class="prompt-block">
@@ -381,7 +366,7 @@
           </div>
           <div class="card-footer">
             <span class="pill">Great for: product & tech</span>
-            <span class="btn-ghost">Use this pattern</span>
+            <span class="btn-ghost">Exploded pattern</span>
           </div>
         </div>
       </section>
@@ -404,16 +389,16 @@
           </div>
           <div class="thumb-row">
             <div class="thumb">
-              <img src="images/maps-1.jpg" alt="City itinerary map">
-              <span class="thumb-label">City map</span>
+              <img src="images/journey coffee.jpg" alt="Coffee journey map">
+              <span class="thumb-label">Coffee map</span>
             </div>
             <div class="thumb">
-              <img src="images/maps-2.jpg" alt="Food trail map">
-              <span class="thumb-label">Food trail</span>
+              <img src="images/journey coffee2.jpg" alt="Second coffee journey map">
+              <span class="thumb-label">Variant</span>
             </div>
             <div class="thumb">
-              <img src="images/maps-3.jpg" alt="Journey map">
-              <span class="thumb-label">Journey</span>
+              <img src="images/travel_pixar3d.jpg" alt="3D travel journey">
+              <span class="thumb-label">3D trip</span>
             </div>
           </div>
           <div class="prompt-block">
@@ -425,7 +410,7 @@
           </div>
           <div class="card-footer">
             <span class="pill">Great for: travel & flows</span>
-            <span class="btn-ghost">Use this pattern</span>
+            <span class="btn-ghost">Map pattern</span>
           </div>
         </div>
       </section>
@@ -448,16 +433,16 @@
           </div>
           <div class="thumb-row">
             <div class="thumb">
-              <img src="images/blueprint-1.jpg" alt="Castle cross section">
+              <img src="images/blueprint.jpg" alt="Architectural blueprint">
+              <span class="thumb-label">Blueprint</span>
+            </div>
+            <div class="thumb">
+              <img src="images/castle.jpg" alt="Castle cross-section">
               <span class="thumb-label">Castle</span>
             </div>
             <div class="thumb">
-              <img src="images/blueprint-2.jpg" alt="Pyramid construction">
-              <span class="thumb-label">Pyramid</span>
-            </div>
-            <div class="thumb">
-              <img src="images/blueprint-3.jpg" alt="Eiffel Tower annotated">
-              <span class="thumb-label">Eiffel</span>
+              <img src="images/landmark.jpg" alt="Landmark overlays">
+              <span class="thumb-label">Landmarks</span>
             </div>
           </div>
           <div class="prompt-block">
@@ -469,7 +454,7 @@
           </div>
           <div class="card-footer">
             <span class="pill">Great for: history & architecture</span>
-            <span class="btn-ghost">Use this pattern</span>
+            <span class="btn-ghost">Blueprint pattern</span>
           </div>
         </div>
       </section>
@@ -492,15 +477,15 @@
           </div>
           <div class="thumb-row">
             <div class="thumb">
-              <img src="images/annot-1.jpg" alt="Annotated meal with calories">
+              <img src="images/food_annotation.jpg" alt="Annotated meal with calories">
               <span class="thumb-label">Meal</span>
             </div>
             <div class="thumb">
-              <img src="images/annot-2.jpg" alt="Fashion mood board">
+              <img src="images/collage2.jpg" alt="Fashion mood board collage">
               <span class="thumb-label">Outfit</span>
             </div>
             <div class="thumb">
-              <img src="images/annot-3.jpg" alt="Character pose sheet">
+              <img src="images/characters poses.jpg" alt="Character pose sheet">
               <span class="thumb-label">Poses</span>
             </div>
           </div>
@@ -513,7 +498,7 @@
           </div>
           <div class="card-footer">
             <span class="pill">Great for: coaching & analysis</span>
-            <span class="btn-ghost">Use this pattern</span>
+            <span class="btn-ghost">Annotation pattern</span>
           </div>
         </div>
       </section>
@@ -536,16 +521,16 @@
           </div>
           <div class="thumb-row">
             <div class="thumb">
-              <img src="images/data-1.jpg" alt="Sketch style chart">
-              <span class="thumb-label">Sketch chart</span>
-            </div>
-            <div class="thumb">
-              <img src="images/data-2.jpg" alt="KPI dashboard">
-              <span class="thumb-label">KPIs</span>
-            </div>
-            <div class="thumb">
-              <img src="images/data-3.jpg" alt="Earnings one pager">
+              <img src="images/financial report.jpg" alt="Financial report infographic">
               <span class="thumb-label">Earnings</span>
+            </div>
+            <div class="thumb">
+              <img src="images/statistics.jpg" alt="Statistics chart">
+              <span class="thumb-label">Stats</span>
+            </div>
+            <div class="thumb">
+              <img src="images/tea statistics.jpg" alt="Tea statistics chart">
+              <span class="thumb-label">Tea stats</span>
             </div>
           </div>
           <div class="prompt-block">
@@ -557,7 +542,7 @@
           </div>
           <div class="card-footer">
             <span class="pill">Great for: reports & decks</span>
-            <span class="btn-ghost">Use this pattern</span>
+            <span class="btn-ghost">Data pattern</span>
           </div>
         </div>
       </section>
@@ -580,28 +565,28 @@
           </div>
           <div class="thumb-row">
             <div class="thumb">
-              <img src="images/story-1.jpg" alt="Film noir storyboard">
-              <span class="thumb-label">Noir</span>
+              <img src="images/diorama.jpg" alt="Diorama style scene">
+              <span class="thumb-label">Diorama</span>
             </div>
             <div class="thumb">
-              <img src="images/story-2.jpg" alt="Day in life educational scene">
-              <span class="thumb-label">Kids</span>
+              <img src="images/3djourey.jpg" alt="3D journey scene">
+              <span class="thumb-label">3D story</span>
             </div>
             <div class="thumb">
-              <img src="images/story-3.jpg" alt="Character arc storyboard">
-              <span class="thumb-label">Arc</span>
+              <img src="images/getawaz.jpg" alt="Getaway itinerary">
+              <span class="thumb-label">Getaway</span>
             </div>
           </div>
           <div class="prompt-block">
             <div class="prompt-label">Sample prompt</div>
             <div class="prompt-text">
-              Create a 12-panel black-and-white film noir storyboard where two detectives follow clues to a
-              missing treasure, no text on the images.
+              Create a 12-panel storyboard where two characters follow clues to a missing treasure,
+              telling the full story visually without any text.
             </div>
           </div>
           <div class="card-footer">
             <span class="pill">Great for: stories & teaching</span>
-            <span class="btn-ghost">Use this pattern</span>
+            <span class="btn-ghost">Story pattern</span>
           </div>
         </div>
       </section>
@@ -624,16 +609,16 @@
           </div>
           <div class="thumb-row">
             <div class="thumb">
-              <img src="images/comp-1.jpg" alt="Playbook map diagram">
-              <span class="thumb-label">Playbook</span>
+              <img src="images/manufactur process.jpg" alt="Manufacturing overview diagram">
+              <span class="thumb-label">Manufacturing</span>
             </div>
             <div class="thumb">
-              <img src="images/comp-2.jpg" alt="System overview visual">
-              <span class="thumb-label">System</span>
+              <img src="images/vinyl.jpg" alt="Vinyl record process">
+              <span class="thumb-label">Vinyl</span>
             </div>
             <div class="thumb">
-              <img src="images/comp-3.jpg" alt="Cheat sheet visual">
-              <span class="thumb-label">Cheat sheet</span>
+              <img src="images/journeypaper.jpg" alt="Paper journey diagram">
+              <span class="thumb-label">Paper</span>
             </div>
           </div>
           <div class="prompt-block">
@@ -645,7 +630,7 @@
           </div>
           <div class="card-footer">
             <span class="pill">Great for: clarity & training</span>
-            <span class="btn-ghost">Use this pattern</span>
+            <span class="btn-ghost">Compression pattern</span>
           </div>
         </div>
       </section>
